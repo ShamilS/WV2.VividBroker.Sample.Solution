@@ -38,6 +38,7 @@
             this.cmdNavigateAndWait = new System.Windows.Forms.Button();
             this.cmdAskQuestion = new System.Windows.Forms.Button();
             this.cmdGoToStartWebPage = new System.Windows.Forms.Button();
+            this.cmdConciseCodeNavigateAndWait = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             this.mainTableLayoutPanel.SuspendLayout();
             this.wvAndLogPanel.SuspendLayout();
@@ -128,6 +129,7 @@
             // 
             // commandPanel
             // 
+            this.commandPanel.Controls.Add(this.cmdConciseCodeNavigateAndWait);
             this.commandPanel.Controls.Add(this.cmdNavigateAndWait);
             this.commandPanel.Controls.Add(this.cmdAskQuestion);
             this.commandPanel.Controls.Add(this.cmdGoToStartWebPage);
@@ -168,6 +170,16 @@
             this.cmdGoToStartWebPage.UseVisualStyleBackColor = true;
             this.cmdGoToStartWebPage.Click += new System.EventHandler(this.cmdGoToStartWebPage_Click);
             // 
+            // cmdConciseCodeNavigateAndWait
+            // 
+            this.cmdConciseCodeNavigateAndWait.Location = new System.Drawing.Point(16, 362);
+            this.cmdConciseCodeNavigateAndWait.Name = "cmdConciseCodeNavigateAndWait";
+            this.cmdConciseCodeNavigateAndWait.Size = new System.Drawing.Size(157, 50);
+            this.cmdConciseCodeNavigateAndWait.TabIndex = 5;
+            this.cmdConciseCodeNavigateAndWait.Text = "Concise Wait for \r\n\'Ask Question\' \r\nButton";
+            this.cmdConciseCodeNavigateAndWait.UseVisualStyleBackColor = true;
+            this.cmdConciseCodeNavigateAndWait.Click += new System.EventHandler(this.cmdConciseCodeNavigateAndWait_Click);
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,6 +216,7 @@
         private System.Windows.Forms.Button cmdGoToStartWebPage;
         private System.Windows.Forms.Button cmdAskQuestion;
         private System.Windows.Forms.Button cmdNavigateAndWait;
+        private System.Windows.Forms.Button cmdConciseCodeNavigateAndWait;
     }
 }
 

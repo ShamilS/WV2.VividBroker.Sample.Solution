@@ -11,15 +11,16 @@ namespace WV2.VividBroker.NetFramework.WinFormsApp
             InitializeComponent();
         }
 
-        private string _url = "https://stackoverflow.com/";
         private string _startUpUrl = "https://bing.com/";
+
+        private string _url = "https://stackoverflow.com/";
         private WebView2Controller _wvc;
         private async void TestForm_Load(Object sender, EventArgs e)
         {
             _wvc = new WebView2Controller(mainWebView, log);
             await _wvc.Init();
 
-            await navigate(_startUpUrl);
+            mainWebView.Source = new Uri(_startUpUrl);
         }
 
         private async Task navigate(string url)
@@ -39,9 +40,18 @@ namespace WV2.VividBroker.NetFramework.WinFormsApp
         {
             return await _wvc.GetButtonCaption(askQuestionButtonSelector);
         }
+
         private async Task<bool> askQuestionButtonFound()
         {
             return !string.IsNullOrWhiteSpace(await askQuestionButtonCaption());
+        }
+
+        private async void cmdConciseCodeNavigateAndWait_Click(Object sender, EventArgs e)
+        {
+            if (!await _wvc.NavigateAndWaitForCondition(_url, askQuestionButtonFound))
+                log("[Ask Question] button not found");
+            else
+                log("[Ask Question] button found");
         }
 
         private void askQuestionButtonAvailable(Object sender, EventArgs e)
@@ -143,5 +153,6 @@ namespace WV2.VividBroker.NetFramework.WinFormsApp
         {
             inv(()=>txtLog.Clear());
         }
+
     }
 }
