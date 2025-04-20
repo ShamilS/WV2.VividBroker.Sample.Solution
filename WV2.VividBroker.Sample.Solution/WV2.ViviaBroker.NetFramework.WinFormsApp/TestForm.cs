@@ -13,7 +13,12 @@ namespace WV2.VividBroker.NetFramework.WinFormsApp
 
         private string _startUpUrl = "https://bing.com/";
 
-        private string _url = "https://stackoverflow.com/";
+        //private string _url = "https://stackoverflow.com/";
+        //private string askQuestionButtonSelector => "#mainbar > div.d-flex.fw-wrap.mb12 > div > a";
+        
+        private string _url = "https://ru.stackoverflow.com/";
+        private string askQuestionButtonSelector => "#mainbar > div:nth-child(1) > div > a";
+
         private WebView2Controller _wvc;
         private async void TestForm_Load(Object sender, EventArgs e)
         {
@@ -35,7 +40,6 @@ namespace WV2.VividBroker.NetFramework.WinFormsApp
             await navigate(_startUpUrl);
         }
 
-        private string askQuestionButtonSelector => "#mainbar > div.d-flex.fw-wrap.mb12 > div > a";
         private async Task<string> askQuestionButtonCaption()
         {
             return await _wvc.GetButtonCaption(askQuestionButtonSelector);
@@ -48,6 +52,8 @@ namespace WV2.VividBroker.NetFramework.WinFormsApp
 
         private async void cmdConciseCodeNavigateAndWait_Click(Object sender, EventArgs e)
         {
+            clearLog();
+
             if (!await _wvc.NavigateAndWaitForCondition(_url, askQuestionButtonFound))
                 log("[Ask Question] button not found");
             else
@@ -80,9 +86,9 @@ namespace WV2.VividBroker.NetFramework.WinFormsApp
                 _wvc.Tick += new EventHandler<EventArgs>(tick);
 
                 if (!await _wvc.NavigateAndWaitForCondition(_url, askQuestionButtonFound))
-                {
                     log("[Ask Question] button not found");
-                }
+                else
+                    log("[Ask Question] button found");
             }
             finally
             {
