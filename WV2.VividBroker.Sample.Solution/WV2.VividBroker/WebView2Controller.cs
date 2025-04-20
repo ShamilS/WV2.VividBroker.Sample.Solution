@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Security.Policy;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Web.WebView2.Core;
@@ -10,8 +11,8 @@ namespace WV2.VividBroker
     public class WebView2Controller: WebView2Commander
     {
         public WebView2Controller(WebView2 wv,
-                                  Func<string, string> logger = null) :
-                                  base(wv, logger) { }
+                                    Func<string, string> logger = null) :
+                                    base(wv, logger) { }
 
         public async Task Init()
         {
@@ -28,17 +29,17 @@ namespace WV2.VividBroker
         public EventHandler<EventArgs> Tick { get; set; }
         public double NavigationElapsedTimeInSeconds => _smartTimer.ElapsedTimeInSeconds;
         public async Task<bool> NavigateAndWaitForCondition(
-                  string url,
-                  Func<Task<bool>> condition,
-                  int timerTickIntervalInMS = TIMER_TICK_INTERVAL_IN_MS,
-                  int timeOutInSeconds = TIME_OUT_IN_SECONDS)
+                    string url,
+                    Func<Task<bool>> condition,
+                    int timerTickIntervalInMS = TIMER_TICK_INTERVAL_IN_MS,
+                    int timeOutInSeconds = TIME_OUT_IN_SECONDS)
         {
             var conditionOK = false;
             _waitFlag = new ManualResetEvent(false);
             _smartTimer = new TimeOutTimer(
-                           condition,
-                           timerTickIntervalInMS,
-                           timeOutInSeconds);
+                            condition,
+                            timerTickIntervalInMS,
+                            timeOutInSeconds);
             _smartTimer.ConditionVerified += new EventHandler<EventArgs>(conditionVerified);
             _smartTimer.TimeOut += new EventHandler<EventArgs>(timeOut);
             _smartTimer.Tick += new EventHandler<EventArgs>(tick);
@@ -104,3 +105,5 @@ namespace WV2.VividBroker
         }
     }
 }
+
+
