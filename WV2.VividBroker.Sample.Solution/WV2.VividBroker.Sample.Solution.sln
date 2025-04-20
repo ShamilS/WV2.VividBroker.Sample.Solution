@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35828.75 d17.13
+VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WV2.VividBroker.NetFramework.WinFormsApp", "WV2.ViviaBroker.NetFramework.WinFormsApp\WV2.VividBroker.NetFramework.WinFormsApp.csproj", "{47500EE7-FAAE-4B17-A919-B35FB99ACC06}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WV2.VividBroker.Net.WinFormsApp", "WV2.VividBroker.Net.WinFormsApp\WV2.VividBroker.Net.WinFormsApp.csproj", "{7D7842A7-13E8-4EDA-9083-7754EE4FAB72}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WV2.VividBroker", "WV2.VividBroker\WV2.VividBroker.csproj", "{DC8F0AEA-EAFC-4A3F-802D-8E1F6D3D1BE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		!Readme.!st.txt = !Readme.!st.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
