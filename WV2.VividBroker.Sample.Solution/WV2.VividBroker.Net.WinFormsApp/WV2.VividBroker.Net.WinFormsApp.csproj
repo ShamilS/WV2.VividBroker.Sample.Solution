@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\WV2.VividBroker\TimeOutTimer.cs" Link="WV2.VividBroker.LinkedCodeFiles\TimeOutTimer.cs" />
+    <Compile Include="..\WV2.VividBroker\WebView2Commander.cs" Link="WV2.VividBroker.LinkedCodeFiles\WebView2Commander.cs" />
+    <Compile Include="..\WV2.VividBroker\WebView2Controller.cs" Link="WV2.VividBroker.LinkedCodeFiles\WebView2Controller.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3179.45" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="WV2.VividBroker.LinkedCodeFiles\" />
+  </ItemGroup>
+
+</Project>
